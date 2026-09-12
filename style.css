@@ -1,0 +1,217 @@
+:root {
+    --primary: #5C7E8F;    /* Slate Blue */
+    --secondary: #D4DDE2;  /* Light Gray-Blue */
+    --gray: #A2A2A2;       /* Medium Gray */
+    --white: #FFFFFF;      /* White */
+    --text-dark: #2C3E50;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--white);
+    color: var(--text-dark);
+    line-height: 1.8;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px 20px;
+}
+
+header h1 {
+    color: var(--primary);
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+header .subtitle {
+    color: var(--gray);
+    font-size: 0.95em;
+    letter-spacing: 1.5px; /* Memberikan spasi antar huruf agar lebih clean */
+    margin-top: -5px; /* Mendekatkan teks ke judul "My Profile." */
+    margin-bottom: 25px; /* Memberikan ruang napas sebelum menu navigasi */
+    font-weight: 500;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: var(--gray);
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 0.95em;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    color: var(--primary);
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+ul {
+    color: #555;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Minimalist List for Experience */
+.experience-item {
+    border-left: 2px solid var(--secondary);
+    padding-left: 15px;
+    margin-bottom: 30px;
+}
+
+.experience-item h3 {
+    margin: 0 0 5px 0;
+    color: var(--primary);
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.meta {
+    color: var(--gray);
+    font-size: 0.85em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Minimalist Gallery Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    background-color: var(--secondary);
+    aspect-ratio: 1; 
+    border: 1px solid var(--secondary);
+    border-radius: 8px;
+    overflow: hidden; 
+    position: relative; /* Wajib ditambahkan */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    transition: transform 0.4s ease; 
+}
+
+/* Desain Overlay Teks (Awalnya tersembunyi / opacity: 0) */
+.gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(92, 126, 143, 0.85); /* Latar Slate Blue semi-transparan */
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0; /* Menyembunyikan teks */
+    transition: opacity 0.3s ease; /* Efek memudar yang halus */
+    font-size: 0.95em;
+    font-weight: 500;
+}
+
+/* Efek saat Hover: Munculkan overlay dan zoom gambar */
+.gallery-item:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 12px 20px rgba(92, 126, 143, 0.3); 
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1); /* Efek zoom tipis pada foto asli */
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1; /* Memunculkan teks dan warna latar saat di-hover */
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--gray);
+    font-size: 0.85em;
+}
+
+/* --- Tata Letak Halaman Beranda (Profile Layout) --- */
+.profile-container {
+    display: flex;
+    align-items: center; 
+    gap: 40px; 
+    flex-wrap: wrap; 
+}
+
+.profile-image {
+    flex-shrink: 0;
+    width: 240px; /* Ukuran diperbesar sedikit agar proporsional tanpa frame */
+    display: flex;
+    justify-content: center;
+}
+
+.profile-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Memastikan tidak ada bagian tubuh yang terpotong */
+    border: none; /* Menghilangkan frame */
+    border-radius: 0; /* Menghilangkan bentuk lingkaran */
+    box-shadow: none; /* Menghilangkan bayangan kotak/lingkaran dasar */
+    
+    /* Drop-shadow adalah kunci untuk foto background transparan. 
+       Bayangan akan mengikuti lekuk rambut dan bahu, bukan kotak gambarnya. */
+    filter: drop-shadow(0 15px 15px rgba(92, 126, 143, 0.3)); 
+}
+
+.profile-text {
+    flex: 1; 
+    min-width: 300px;
+}
+
+/* --- Penyesuaian Otomatis untuk Layar HP (Mobile Responsive) --- */
+@media (max-width: 600px) {
+    .profile-container {
+        flex-direction: column;
+        text-align: center; 
+        gap: 20px;
+    }
+}
