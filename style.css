@@ -254,3 +254,30 @@ footer {
 .contact-card:hover .handle {
     color: var(--white);
 }
+
+/* --- Pop-up Toast Notification --- */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: var(--primary); /* Menggunakan warna Slate Blue */
+    color: var(--white);
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-size: 0.95em;
+    box-shadow: 0 4px 12px rgba(92, 126, 143, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+
+/* Class ini akan ditambahkan oleh JavaScript saat tombol diklik */
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px; /* Memberikan efek melayang ke atas sedikit */
+}
