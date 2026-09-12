@@ -33,9 +33,9 @@
                     <span class="platform">LinkedIn</span>
                     <span class="handle">Fatih Akmal Alqathani</span>
                 </a>
-                <a href="mailto:emailanda@gmail.com" class="contact-card">
+                <a href="#" class="contact-card" onclick="copyEmail(event, 'emailanda@gmail.com')">
                     <span class="platform">Email</span>
-                    <span class="handle">Kirim Pesan</span>
+                    <span class="handle">Salin Email</span>
                 </a>
                 <a href="https://wa.me/6285156513914" target="_blank" class="contact-card">
                     <span class="platform">WhatsApp</span>
@@ -45,5 +45,29 @@
         </div>
     </main>
     <footer>&copy; 2026 Fatih Akmal Alqathani.</footer>
+</body>
+    <script>
+        function copyEmail(event, emailAddress) {
+            // Mencegah halaman melompat/refresh
+            event.preventDefault(); 
+            
+            // Menyalin teks ke clipboard
+            navigator.clipboard.writeText(emailAddress).then(function() {
+                // Mencari elemen span dengan class 'handle' di dalam card yang diklik
+                const handleElement = event.currentTarget.querySelector('.handle');
+                const originalText = handleElement.innerText;
+                
+                // Ubah teks menjadi indikator sukses
+                handleElement.innerText = "Tersalin!";
+                
+                // Kembalikan ke teks semula setelah 2 detik
+                setTimeout(function() {
+                    handleElement.innerText = originalText;
+                }, 2000);
+            }).catch(function(err) {
+                alert('Gagal menyalin email: ' + err);
+            });
+        }
+    </script>
 </body>
 </html>
