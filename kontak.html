@@ -45,20 +45,15 @@
         </div>
     </main>
     <footer>&copy; 2026 Fatih Akmal Alqathani.</footer>
-</body>
-<div id="toast" class="toast">Email berhasil disalin!</div>
+    <div id="toast" class="toast">Email berhasil disalin!</div>
     <script>
         function copyEmail(event, emailAddress) {
-            // Mencegah halaman melompat/refresh
             event.preventDefault(); 
             
-            // Menyalin teks ke clipboard
             navigator.clipboard.writeText(emailAddress).then(function() {
-                // Pop-up Notifikasi
                 const toast = document.getElementById("toast");
-                toast.className = "toast show"; // Menambahkan class 'show'
+                toast.className = "toast show"; 
                 
-                // Menyembunyikan pop-up setelah 3 detik
                 setTimeout(function() {
                     toast.className = toast.className.replace("show", "").trim();
                 }, 3000);
@@ -68,6 +63,5 @@
             });
         }
     </script>
-</body>
 </body>
 </html>
