@@ -1,8 +1,8 @@
 :root {
-    --primary: #5C7E8F;    /* Slate Blue */
-    --secondary: #D4DDE2;  /* Light Gray-Blue */
-    --gray: #A2A2A2;       /* Medium Gray */
-    --white: #FFFFFF;      /* White */
+    --primary: #5C7E8F;
+    --secondary: #D4DDE2;
+    --gray: #A2A2A2;
+    --white: #FFFFFF;
     --text-dark: #2C3E50;
 }
 
@@ -31,9 +31,9 @@ header h1 {
 header .subtitle {
     color: var(--gray);
     font-size: 0.95em;
-    letter-spacing: 1.5px; /* Memberikan spasi antar huruf agar lebih clean */
-    margin-top: -5px; /* Mendekatkan teks ke judul "My Profile." */
-    margin-bottom: 25px; /* Memberikan ruang napas sebelum menu navigasi */
+    letter-spacing: 1.5px;
+    margin-top: -5px;
+    margin-bottom: 25px;
     font-weight: 500;
 }
 
@@ -84,7 +84,6 @@ li {
     margin-bottom: 10px;
 }
 
-/* Minimalist List for Experience */
 .experience-item {
     border-left: 2px solid var(--secondary);
     padding-left: 15px;
@@ -105,7 +104,6 @@ li {
     display: block;
 }
 
-/* Minimalist Gallery Grid */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -118,7 +116,7 @@ li {
     border: 1px solid var(--secondary);
     border-radius: 8px;
     overflow: hidden; 
-    position: relative; /* Wajib ditambahkan */
+    position: relative;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -132,14 +130,13 @@ li {
     transition: transform 0.4s ease; 
 }
 
-/* Desain Overlay Teks (Awalnya tersembunyi / opacity: 0) */
 .gallery-item .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(92, 126, 143, 0.85); /* Latar Slate Blue semi-transparan */
+    background-color: rgba(92, 126, 143, 0.85);
     color: var(--white);
     display: flex;
     align-items: center;
@@ -147,24 +144,23 @@ li {
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
-    opacity: 0; /* Menyembunyikan teks */
-    transition: opacity 0.3s ease; /* Efek memudar yang halus */
+    opacity: 0;
+    transition: opacity 0.3s ease;
     font-size: 0.95em;
     font-weight: 500;
 }
 
-/* Efek saat Hover: Munculkan overlay dan zoom gambar */
 .gallery-item:hover {
     transform: translateY(-8px); 
     box-shadow: 0 12px 20px rgba(92, 126, 143, 0.3); 
 }
 
 .gallery-item:hover img {
-    transform: scale(1.1); /* Efek zoom tipis pada foto asli */
+    transform: scale(1.1);
 }
 
 .gallery-item:hover .overlay {
-    opacity: 1; /* Memunculkan teks dan warna latar saat di-hover */
+    opacity: 1;
 }
 
 footer {
@@ -174,7 +170,6 @@ footer {
     font-size: 0.85em;
 }
 
-/* --- Tata Letak Halaman Beranda (Profile Layout) --- */
 .profile-container {
     display: flex;
     align-items: center; 
@@ -184,7 +179,7 @@ footer {
 
 .profile-image {
     flex-shrink: 0;
-    width: 240px; /* Ukuran diperbesar sedikit agar proporsional tanpa frame */
+    width: 240px;
     display: flex;
     justify-content: center;
 }
@@ -192,13 +187,10 @@ footer {
 .profile-image img {
     width: 100%;
     height: auto;
-    object-fit: contain; /* Memastikan tidak ada bagian tubuh yang terpotong */
-    border: none; /* Menghilangkan frame */
-    border-radius: 0; /* Menghilangkan bentuk lingkaran */
-    box-shadow: none; /* Menghilangkan bayangan kotak/lingkaran dasar */
-    
-    /* Drop-shadow adalah kunci untuk foto background transparan. 
-       Bayangan akan mengikuti lekuk rambut dan bahu, bukan kotak gambarnya. */
+    object-fit: contain;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
     filter: drop-shadow(0 15px 15px rgba(92, 126, 143, 0.3)); 
 }
 
@@ -207,14 +199,14 @@ footer {
     min-width: 300px;
 }
 
-/* --- Penyesuaian Otomatis untuk Layar HP (Mobile Responsive) --- */
 @media (max-width: 600px) {
     .profile-container {
         flex-direction: column;
         text-align: center; 
         gap: 20px;
+    }
+}
 
-/* --- Bagian Halaman Kontak --- */
 .contact-section {
     width: 100%;
     margin-top: 20px;
